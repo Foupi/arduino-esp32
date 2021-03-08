@@ -52,7 +52,7 @@ set(LIBRARY_SRCS
   libraries/FS/src/vfs_api.cpp
   libraries/HTTPClient/src/HTTPClient.cpp
   libraries/HTTPUpdate/src/HTTPUpdate.cpp
-  libraries/LITTLEFS/src/LITTLEFS.cpp
+  # libraries/LITTLEFS/src/LITTLEFS.cpp
   libraries/NetBIOS/src/NetBIOS.cpp
   libraries/Preferences/src/Preferences.cpp
   libraries/SD_MMC/src/SD_MMC.cpp
@@ -152,7 +152,7 @@ set(includedirs
 set(srcs ${CORE_SRCS} ${LIBRARY_SRCS} ${BLE_SRCS})
 set(priv_includes cores/esp32/libb64)
 set(requires spi_flash mbedtls mdns esp_adc_cal)
-set(priv_requires fatfs nvs_flash app_update spiffs bootloader_support openssl bt tinyusb main)
+set(priv_requires fatfs nvs_flash app_update spiffs bootloader_support openssl bt main)
 
 idf_component_register(INCLUDE_DIRS ${includedirs} PRIV_INCLUDE_DIRS ${priv_includes} SRCS ${srcs} REQUIRES ${requires} PRIV_REQUIRES ${priv_requires})
 
