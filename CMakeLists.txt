@@ -152,7 +152,10 @@ set(includedirs
 set(srcs ${CORE_SRCS} ${LIBRARY_SRCS} ${BLE_SRCS})
 set(priv_includes cores/esp32/libb64)
 set(requires spi_flash mbedtls mdns esp_adc_cal)
-set(priv_requires fatfs nvs_flash app_update spiffs bootloader_support openssl bt main)
+set(priv_requires fatfs nvs_flash app_update spiffs bootloader_support openssl bt
+  # Including main is too much trouble for now: only include necessary components.
+    "wifi_provisioning" "esp_http_client" "esp_https_ota"
+)
 
 idf_component_register(INCLUDE_DIRS ${includedirs} PRIV_INCLUDE_DIRS ${priv_includes} SRCS ${srcs} REQUIRES ${requires} PRIV_REQUIRES ${priv_requires})
 
